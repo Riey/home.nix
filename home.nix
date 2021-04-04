@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./emacs.nix
     ./sway.nix
     ./tool.nix
     ./neovim.nix
