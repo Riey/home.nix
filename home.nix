@@ -287,6 +287,37 @@
         "Print" = "exec grim -g \"$(slurp)\" \"~/Pictures/$(date + '%Y%m%d%H%M%S').png\"";
       };
     };
+    extraConfig = ''
+      assign [class="firefox"]            number 2
+      assign [class="jetbrains-.*"]       number 3
+      assign [class="Emacs"]              number 3
+      assign [class="Steam"]              number 5
+      assign [class="Lutris"]             number 5
+      assign [class="Clementine"]         number 9
+
+      for_window [instance="battle.net.exe"]                  floating enable
+      for_window [class="mpv"]                                floating enable
+      for_window [class="vlc"]                                floating enable
+      for_window [class="discord"]                            floating enable
+      for_window [class="jetbrains-.*" title="win0"]          floating enable border none
+      for_window [class="konsole" floating]                   resize set 800 600
+      for_window [title="Picture-in-Picture"]                 floating enable
+      for_window [title="이미지 업로드 .*"]                   floating enable
+
+      workspace 1  output  HDMI-A-1
+      workspace 3  output  HDMI-A-1
+      workspace 5  output  HDMI-A-1
+
+      workspace 2  output  HDMI-A-2
+      workspace 4  output  HDMI-A-2
+      workspace 6  output  HDMI-A-2
+      workspace 7  output  HDMI-A-2
+      workspace 8  output  HDMI-A-2
+      workspace 9  output  HDMI-A-2
+
+      exec mako
+      exec kime-indicator
+    '';
   };
 
   xdg.configFile."waybar/config".source = ./waybar/config;
