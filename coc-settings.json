@@ -1,0 +1,4 @@
+{
+    "rust-analyzer.serverPath": "/run/current-system/sw/bin/rust-analyzer"
+}
+
