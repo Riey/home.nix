@@ -40,7 +40,6 @@
     grim
     wf-recorder
     slurp
-    mako
     alacritty
     gnome3.nautilus
     gnome3.gnome-terminal
@@ -55,6 +54,12 @@
 
   programs.firefox = {
     enable = true;
+  };
+
+  programs.mako = {
+    enable = true;
+    # 5 secs
+    defaultTimeout = 5000;
   };
 
   programs.bat = {
@@ -93,11 +98,11 @@
   #   pinentryFlavor = "gnome3";
   # };
 
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-    settings = {};
-  };
+  # programs.starship = {
+  #   enable = true;
+  #   enableZshIntegration = true;
+  #   settings = {};
+  # };
 
   programs.zsh = {
     enable = true;
@@ -105,10 +110,27 @@
     enableCompletion = true;
     plugins = [
       {
-        name = "fast-syntax-highlighting";
+        name = "zsh-fast-syntax-highlighting";
         src = pkgs.zsh-fast-syntax-highlighting;
       }
+      {
+        name = "zsh-powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+      }
     ];
+    initExtraBeforeCompInit = ''
+    # Enable Powerlevel10k instant prompt. Should stay close to the       top of ~/.zshrc.
+    # Initialization code that may require console input (password p      rompts, [y/n]
+    # confirmations, etc.) must go above this block; everything else       may go below.
+    if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+      source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+    fi
+
+    source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+    source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
+    '';
+    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+    initExtra = "[[ ! -f ~/.config/nixpkgs/p10k.zsh ]] || source ~/.config/nixpkgs/p10k.zsh";
     sessionVariables = {
       GPG_TTY = "$(tty)";
     };
@@ -123,13 +145,6 @@
       lta = "lsd -a --tree";
       ltl = "lsd -l --tree";
       ltla = "lsd -la --tree";
-    };
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "git" "sudo" "cargo" "rust" "git" "gitfast" "github"
-        "command-not-found" "cp" "docker" "fd" "ripgrep"
-      ];
     };
   };
 
@@ -349,7 +364,6 @@
       workspace 8  output  HDMI-A-2
       workspace 9  output  HDMI-A-2
 
-      exec mako
       exec kime-indicator
     '';
   };
