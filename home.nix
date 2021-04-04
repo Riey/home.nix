@@ -13,6 +13,40 @@
   };
 
   home.packages = with pkgs; [
+    nix-index
+    htop nload nodejs neofetch
+    ripgrep lsd fd bat
+
+    gitAndTools.gh
+
+    # video
+    mpv vlc ffmpeg
+
+    # file
+    feh unzip p7zip
+    xdg_utils
+
+    # TeX
+    texlive.combined.scheme-full
+    evince
+
+    # gui apps
+    imagemagick7
+    swaylock
+    swayidle
+    swaybg
+    waybar
+    wl-clipboard
+    grim
+    wf-recorder
+    slurp
+    mako
+    alacritty
+    gnome3.nautilus
+    gnome3.gnome-terminal
+    kate
+    konsole
+    dolphin
   ];
 
   programs.home-manager = {
