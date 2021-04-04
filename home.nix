@@ -7,8 +7,9 @@
   home.homeDirectory = "/home/riey";
   home.sessionVariables = {
     EDITOR = "nvim";
-    LESS_CHARSET = "utf-8";
-    GPG_TTY = "$(tty)";
+    # PAGER = "rp";
+    PATH = "~/.local/bin:~/.cargo/bin:$PATH";
+    LESSCHARSET = "utf-8";
   };
 
   home.packages = with pkgs; [
@@ -74,7 +75,10 @@
         src = pkgs.zsh-fast-syntax-highlighting;
       }
     ];
-    shellAliases = {
+    sessionVariables = {
+      GPG_TTY = "$(tty)";
+    };
+    shellGlobalAliases = {
       cat = "bat";
       ls = "lsd";
       l = "lsd -l";
@@ -351,9 +355,22 @@
         };
       };
       keybindings = let
+        left = "h";
+        down = "j";
+        up = "k";
+        right = "l";
         mod = config.wayland.windowManager.sway.config.modifier;
+        mod_ctrl = "${mod}+Ctrl";
       in lib.mkOptionDefault {
         "${mod}+Return" = "exec alacritty";
+        "${mod_ctrl}+${left}" = "move workspace to output left";
+        "${mod_ctrl}+${down}" = "move workspace to output down";
+        "${mod_ctrl}+${up}" = "move workspace to output up";
+        "${mod_ctrl}+${right}" = "move workspace to output right";
+        "${mod_ctrl}+left" = "move workspace to output left";
+        "${mod_ctrl}+down" = "move workspace to output down";
+        "${mod_ctrl}+up" = "move workspace to output up";
+        "${mod_ctrl}+right" = "move workspace to output right";
         "Print" = "exec grim -g \"$(slurp)\" \"~/Pictures/$(date + '%Y%m%d%H%M%S').png\"";
       };
     };
