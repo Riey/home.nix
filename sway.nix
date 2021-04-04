@@ -13,6 +13,7 @@
       export _JAVA_AWT_WM_NOREPARENTING=1
     '';
     config = {
+      fonts = [ "sans-serif 12" ];
       terminal = "alacritty";
       modifier = "Mod1";
       menu = "rofi -show drun -show-icons | xargs swaymsg exec --";
