@@ -27,8 +27,11 @@
 
     gitAndTools.gh
 
+    # torrent
+    transmission-gtk
+
     # video
-    mpv vlc ffmpeg
+    mpv vlc ffmpeg rclone youtube-dl
 
     # file
     feh unzip p7zip

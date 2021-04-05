@@ -39,6 +39,9 @@
     enable = true;
   };
 
+  # rclone
+  xdg.configFile."rclone/rclone.conf".source = ./rclone.conf;
+
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSshSupport = true;
