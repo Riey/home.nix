@@ -41,12 +41,13 @@
 
   # rclone
   xdg.configFile."rclone/rclone.conf".source = ./rclone.conf;
+  home.file.".local/bin/encode_2pass.sh".source = ./local-bin/encode_2pass.sh;
 
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSshSupport = true;
-  #   sshKeys = [ "6D3331CEE6D14FDAFC2B39872D09658FE7407060" ];
-  #   pinentryFlavor = "gnome3";
-  # };
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
+    sshKeys = [ "6D3331CEE6D14FDAFC2B39872D09658FE7407060" ];
+    pinentryFlavor = "gnome3";
+  };
 }
 

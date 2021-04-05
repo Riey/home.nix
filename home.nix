@@ -1,11 +1,26 @@
 { config, pkgs, lib, ... }:
 
+let
+  kime = import ~/repos/kime/default.nix {};
+  # kime = import ./pkgs/kime.nix { pkgs = pkgs; };
+
+  gtk3_cache = pkgs.runCommand "gtk3-immodule.cache"
+  { preferredLocalBuild = true;
+    allowedSubstitutes = false;
+    buildInputs = [ pkgs.gtk3 kime ];
+  }
+  ''
+    mkdir -p $out/etc/gtk-3.0/
+    GTK_PATH=${kime}/lib/gtk-3.0/ gtk-query-immodules-3.0 > $out/etc/gtk-3.0/immodules.cache
+  '';
+in
 {
   imports = [
     ./emacs.nix
     ./sway.nix
-    ./tool.nix
     ./neovim.nix
+    ./gui-toolkit.nix
+    ./tool.nix
     ./zsh.nix
   ];
 
@@ -15,15 +30,21 @@
   home.homeDirectory = "/home/riey";
   home.sessionVariables = {
     EDITOR = "nvim";
+    GPG_TTY = "$(tty)";
     # PAGER = "rp";
-    PATH = "~/.local/bin:~/.cargo/bin:$PATH";
     LESSCHARSET = "utf-8";
   };
+  home.sessionPath = [
+    "$HOME/.local/bin"
+    "$HOME/.cargo/bin"
+  ];
 
   home.packages = with pkgs; [
-    nix-index
-    htop nload nodejs neofetch
+    cachix nix-index
+    nload nodejs neofetch
     ripgrep lsd fd bat
+    cargo-edit cargo-outdated
+    rustc cargo rust-analyzer rustfmt
 
     gitAndTools.gh
 
@@ -56,6 +77,9 @@
     kate
     konsole
     dolphin
+  ] ++ [
+    kime
+    gtk3_cache
   ];
 
   programs.home-manager = {

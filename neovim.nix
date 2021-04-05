@@ -30,6 +30,10 @@
     extraConfig = builtins.readFile ./init.vim;
   };
 
-  xdg.configFile."nvim/coc-settings.json".source = ./coc-settings.json;
+  xdg.configFile."nvim/coc-settings.json".text = ''
+  {
+      "rust-analyzer.serverPath": "~/.nix-profile/bin/rust-analyzer"
+  }
+  '';
 }
 
