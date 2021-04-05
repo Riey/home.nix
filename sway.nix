@@ -61,7 +61,7 @@
         "${mod_ctrl}+down" = "move workspace to output down";
         "${mod_ctrl}+up" = "move workspace to output up";
         "${mod_ctrl}+right" = "move workspace to output right";
-        "Print" = "exec grim -g \"$(slurp)\" \"~/Pictures/$(date + '%Y%m%d%H%M%S').png\"";
+        "Print" = "exec grim -g \"$(slurp)\" \"~/Pictures/$(date +'%Y%m%d%H%M%S').png\"";
       };
     };
     extraConfig = ''
