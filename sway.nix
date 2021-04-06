@@ -147,6 +147,11 @@
           mods = "Shift|Control";
           action = "ToggleViMode";
         }
+        {
+          key = "Tab";
+          mods = "Control";
+          action = "SpawnNewInstance";
+        }
       ];
       # Oxide
       colors = {

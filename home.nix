@@ -56,7 +56,10 @@ in
     transmission-gtk
 
     # video
-    mpv vlc ffmpeg rclone youtube-dl
+    vlc ffmpeg rclone youtube-dl
+    vapoursynth
+    vapoursynth-mvtools
+    ffms
 
     # file
     feh unzip p7zip
