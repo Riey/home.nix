@@ -71,6 +71,7 @@
   # rclone
   xdg.configFile."rclone/rclone.conf".source = ./rclone.conf;
   home.file.".local/bin/encode_2pass.sh".source = ./local-bin/encode_2pass.sh;
+  home.file.".local/bin/term".source = ./local-bin/term;
 
   services.gpg-agent = {
     enable = true;
