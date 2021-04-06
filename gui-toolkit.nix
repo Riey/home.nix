@@ -3,17 +3,20 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.arc-theme;
-      name = "Arc-Dark";
+      package = pkgs.gnome3.gnome_themes_standard;
+      name = "Adwaita";
     };
     iconTheme = {
-      package = pkgs.arc-icon-theme;
-      name = "Arc-Dark";
+      name = "Adwaita";
     };
   };
   qt = {
     enable = true;
-    platformTheme = "gtk";
+    platformTheme = "gnome";
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
   };
 }
 

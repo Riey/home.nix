@@ -42,9 +42,13 @@ in
   home.packages = with pkgs; [
     cachix nix-index
     nload nodejs neofetch
-    ripgrep lsd fd bat
+    ripgrep lsd fd bat dua
     cargo-edit cargo-outdated
     rustc cargo rust-analyzer rustfmt
+
+    breeze-gtk
+    breeze-icons
+    breeze-qt5
 
     gitAndTools.gh
 
