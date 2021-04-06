@@ -2,8 +2,8 @@
 # Keep nix-shell
 
 if [[ -z $IN_NIX_SHELL ]]; then
-    swaymsg -t command exec "alacritty --working-directory $PWD"
+    swaymsg "alacritty --working-directory $PWD"
 else
-    swaymsg -t command exec "alacritty --working-directory $PWD --command nix-shell --run zsh"
+    swaymsg exec "alacritty --working-directory $PWD --command nix-shell --run zsh"
 fi
 
