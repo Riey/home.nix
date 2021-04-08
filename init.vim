@@ -35,7 +35,7 @@ set inccommand=nosplit
 
 set history=10000
 
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
+" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
 autocmd FileType scss setl iskeyword+=@-@
 
 map <C-j> <Nop>

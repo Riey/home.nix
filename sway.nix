@@ -126,7 +126,7 @@
       font.bold.size = size;
       font.italic.family = font;
       font.italic.size = size;
-      background_opacity = 0.6;
+      background_opacity = 1.0;
       shell.program = "/run/current-system/sw/bin/zsh";
       mouse_bindings = [
         {

@@ -1,8 +1,10 @@
 { config, pkgs, lib, ... }:
 
 let
-  kime = import ~/repos/kime/default.nix {};
-  # kime = import ./pkgs/kime.nix { pkgs = pkgs; };
+  kime = import (fetchTarball {
+    url = https://github.com/Riey/kime/archive/refs/tags/v2.3.3.tar.gz;
+    sha256 = "1pkwqhn9c2zza6b9bgynk5m7ak65qd6lra0wrzlwa8araaskyd0j";
+  }) {};
 
   gtk3_cache = pkgs.runCommand "gtk3-immodule.cache"
   { preferredLocalBuild = true;
@@ -13,8 +15,13 @@ let
     mkdir -p $out/etc/gtk-3.0/
     GTK_PATH=${kime}/lib/gtk-3.0/ gtk-query-immodules-3.0 > $out/etc/gtk-3.0/immodules.cache
   '';
+
+  emacs-overlay = (import (builtins.fetchTarball {
+    url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+  }));
 in
 {
+  nixpkgs.overlays = [ emacs-overlay ];
   imports = [
     ./emacs.nix
     ./sway.nix
