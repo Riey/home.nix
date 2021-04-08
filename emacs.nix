@@ -258,6 +258,9 @@ in
         '';
       };
 
+      flycheck = { enable = true; };
+      flycheck-rust = { enable = true; hook = ["('rust-mode . 'flycheck-mode)"]; };
+
       cargo = {
         enable = true;
         hook = ["('rust-mode . 'cargo-minor-mode)"];
@@ -270,6 +273,7 @@ in
         '';
       };
 
+      envrc = { enable = true; config = "(envrc-global-mode)"; };
       auctex = { enable = true; };
       pdf-tool = { enable = true; };
     };
