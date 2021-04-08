@@ -65,7 +65,7 @@
       };
     };
     extraConfig = ''
-      focus_follows_mouse no
+      focus_follows_mouse yes
       default_border pixel 1
       default_floating_border none
       hide_edge_borders smart
@@ -78,7 +78,7 @@
       assign [class="Clementine"]         number 9
 
       for_window [instance="battle.net.exe"]                  floating enable
-      for_window [class="mpv"]                                floating enable
+      for_window [app_id="mpv"]                                floating enable
       for_window [class="vlc"]                                floating enable
       for_window [class="discord"]                            floating enable
       for_window [class="jetbrains-.*" title="win0"]          floating enable border none

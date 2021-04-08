@@ -39,14 +39,14 @@
       profile = "gpu-hq";
       force-window = true;
       ytdl-format = "bestvideo+bestaudio";
-      vf = "format=yuv420p,vapoursynth=~~/motioninterpolation.vpy:4:4";
+      #vf = "format=yuv420p,vapoursynth=~~/motioninterpolation.vpy:4:4";
     };
     bindings = {
-      I = "vf toggle format=yuv420p,vapoursynth=~~/motioninterpolation.vpy:4:4";
+      #I = "vf toggle format=yuv420p,vapoursynth=~~/motioninterpolation.vpy:4:4";
     };
   };
 
-  xdg.configFile."mpv/motioninterpolation.vpy".source = ./motioninterpolation.vpy;
+  #xdg.configFile."mpv/motioninterpolation.vpy".source = ./motioninterpolation.vpy;
 
   programs.git = {
     enable = true;

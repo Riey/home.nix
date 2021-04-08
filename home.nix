@@ -23,6 +23,7 @@ in
 {
   nixpkgs.overlays = [ emacs-overlay ];
   imports = [
+    ./direnv.nix
     ./emacs.nix
     ./sway.nix
     ./neovim.nix

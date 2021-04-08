@@ -14,6 +14,7 @@
         '';
       }
       fugitive
+      direnv-vim
       vim-airline
       vim-airline-themes
       vim-css-color
