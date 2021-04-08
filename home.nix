@@ -44,7 +44,7 @@ in
     nload nodejs neofetch
     ripgrep lsd fd bat dua
     cargo-edit cargo-outdated
-    rustc cargo rust-analyzer rustfmt
+    gcc rustc cargo rust-analyzer rustfmt
 
     breeze-gtk
     breeze-icons

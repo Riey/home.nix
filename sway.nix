@@ -65,6 +65,11 @@
       };
     };
     extraConfig = ''
+      focus_follows_mouse no
+      default_border pixel 1
+      default_floating_border none
+      hide_edge_borders smart
+
       assign [class="firefox"]            number 2
       assign [class="jetbrains-.*"]       number 3
       assign [class="Emacs"]              number 3

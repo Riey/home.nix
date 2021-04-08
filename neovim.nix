@@ -13,14 +13,18 @@
           colorscheme dracula
         '';
       }
+      fugitive
       vim-airline
       vim-airline-themes
+      vim-css-color
+      emmet-vim
       vim-nix
       vim-latex-live-preview
       latex-live-preview
       vim-toml
       syntastic
       coc-nvim
+      coc-css
       coc-rust-analyzer
       nerdtree
       nerdtree-git-plugin

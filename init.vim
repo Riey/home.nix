@@ -15,6 +15,7 @@ filetype plugin on
 filetype indent on
 
 set shellslash
+set omnifunc=syntaxcomplete#Complete
 
 set smartindent
 
@@ -35,6 +36,7 @@ set inccommand=nosplit
 set history=10000
 
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
+autocmd FileType scss setl iskeyword+=@-@
 
 map <C-j> <Nop>
 map <C-k> <Nop>
