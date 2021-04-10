@@ -97,7 +97,7 @@
       workspace 8  output  HDMI-A-2
       workspace 9  output  HDMI-A-2
 
-      exec kime-indicator
+      exec kime
     '';
   };
 

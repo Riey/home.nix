@@ -113,7 +113,10 @@ in
       };
       undo-tree = {
         enable = true;
-        config = "(global-undo-tree-mode)";
+        config = ''
+          (setq evil-undo-system 'undo-tree-redo)
+          (global-undo-tree-mode)
+        '';
       };
       undo-fu = {
         enable = false;

@@ -2,8 +2,7 @@
 
 let
   kime = import (fetchTarball {
-    url = https://github.com/Riey/kime/archive/refs/tags/v2.3.3.tar.gz;
-    sha256 = "1pkwqhn9c2zza6b9bgynk5m7ak65qd6lra0wrzlwa8araaskyd0j";
+    url = https://github.com/Riey/kime/archive/refs/heads/develop.tar.gz;
   }) {};
 
   gtk3_cache = pkgs.runCommand "gtk3-immodule.cache"
@@ -50,9 +49,8 @@ in
   home.packages = with pkgs; [
     cachix nix-index
     nload nodejs neofetch
-    ripgrep lsd fd bat dua
-    cargo-edit cargo-outdated
-    gcc rustc cargo rust-analyzer rustfmt
+    ripgrep lsd fd bat dua rust-analyzer
+    cargo-edit cargo-outdated cargo-asm
 
     breeze-gtk
     breeze-icons

@@ -76,6 +76,10 @@
     enableSshSupport = true;
     sshKeys = [ "6D3331CEE6D14FDAFC2B39872D09658FE7407060" ];
     pinentryFlavor = "gnome3";
+    extraConfig = ''
+      allow-emacs-pinentry
+      allow-loopback-pinentry
+    '';
   };
 }
 
