@@ -1,20 +1,6 @@
 { config, pkgs, lib, ... }:
 
 let
-  kime = import (fetchTarball {
-    url = https://github.com/Riey/kime/archive/refs/heads/develop.tar.gz;
-  }) {};
-
-  gtk3_cache = pkgs.runCommand "gtk3-immodule.cache"
-  { preferredLocalBuild = true;
-    allowedSubstitutes = false;
-    buildInputs = [ pkgs.gtk3 kime ];
-  }
-  ''
-    mkdir -p $out/etc/gtk-3.0/
-    GTK_PATH=${kime}/lib/gtk-3.0/ gtk-query-immodules-3.0 > $out/etc/gtk-3.0/immodules.cache
-  '';
-
   emacs-overlay = (import (builtins.fetchTarball {
     url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
   }));
@@ -47,16 +33,19 @@ in
   ];
 
   home.packages = with pkgs; [
-    cachix nix-index
+    nix-index
+    nix-prefetch
     nload nodejs neofetch
     ripgrep lsd fd bat dua rust-analyzer
-    cargo-edit cargo-outdated cargo-asm
+    cargo-feature cargo-deny cargo-edit cargo-outdated cargo-asm
+    wine
+    navi
 
     breeze-gtk
     breeze-icons
     breeze-qt5
 
-    gitAndTools.gh
+    gh hub
 
     # torrent
     transmission-gtk
@@ -90,9 +79,6 @@ in
     kate
     konsole
     dolphin
-  ] ++ [
-    kime
-    gtk3_cache
   ];
 
   programs.home-manager = {

@@ -26,6 +26,7 @@
       syntastic
       coc-nvim
       coc-css
+      coc-clangd
       coc-rust-analyzer
       nerdtree
       nerdtree-git-plugin

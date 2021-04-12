@@ -6,8 +6,6 @@
     wrapperFeatures.gtk = true;
     systemdIntegration = true;
     extraSessionCommands = ''
-      export GTK_IM_MODULE=kime
-      export QT_IM_MODULE=kime
       export QT_QPA_PLATFORM=wayland
       export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
       export _JAVA_AWT_WM_NOREPARENTING=1

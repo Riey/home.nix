@@ -8,13 +8,11 @@ in
   programs.emacs = {
     enable = true;
     package = pkgs.emacsPgtkGcc;
-    overrides = self: super: {
-      auctex = fetchTarball https://elpa.gnu.org/packages/auctex-13.0.6.tar;
-    };
+    extraPackages = epkgs: [ epkgs.vterm ];
   };
 
   programs.emacs.init = {
-    enable = true;
+    enable = false;
     recommendedGcSettings = true;
     startupTimer = true;
     earlyInit = builtins.readFile ./emacs/earlyInit.el;
@@ -171,6 +169,16 @@ in
         hook = ["('lsp-mode . 'yas-minor-mode-on)"];
       };
 
+      # C++
+      ccls = {
+        enable = true;
+        hook = ["('c++-mode . 'lsp)" "('c-mode . 'lsp)"];
+        config = ''
+          (require 'ccls)
+          (setq ccls-executable "${pkgs.ccls}/bin/ccls")
+        '';
+      };
+
       # company
       company = {
         enable = true;
@@ -276,7 +284,7 @@ in
         '';
       };
 
-      envrc = { enable = true; config = "(envrc-global-mode)"; };
+      direnv = { enable = true; config = "(direnv-mode)"; };
       auctex = { enable = true; };
       pdf-tool = { enable = true; };
     };
