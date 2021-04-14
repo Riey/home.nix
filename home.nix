@@ -37,7 +37,7 @@ in
     nix-prefetch
     nload nodejs neofetch
     ripgrep lsd fd bat dua rust-analyzer
-    cargo-feature cargo-deny cargo-edit cargo-outdated cargo-asm
+    cargo-feature cargo-deny cargo-edit cargo-outdated cargo-asm cargo-cross
     wine
     navi
 

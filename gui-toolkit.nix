@@ -14,7 +14,7 @@
     enable = true;
     platformTheme = "gnome";
     style = {
-      name = "adwaita-dark";
+      name = "adwaita";
       package = pkgs.adwaita-qt;
     };
   };

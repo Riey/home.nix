@@ -31,9 +31,8 @@
       lla = "lsd -la";
       lt = "lsd --tree";
       lta = "lsd -a --tree";
-      ltl = "lsd -l --tree";
-      ltla = "lsd -la --tree";
-      nixsh = "nix-shell --command zsh";
+      llt = "lsd -l --tree";
+      llta = "lsd -la --tree";
     };
   };
 
